@@ -1,0 +1,9 @@
+[user]
+email = iulian.stefan.rizescu@gmail.com
+name = Stefan Rizescu
+
+[github]
+user = "rizesql"
+
+[core]
+sshCommand = "ssh -i ~/.ssh/rizesql"

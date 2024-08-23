@@ -1,0 +1,11 @@
+[
+  {
+    "bindings": {
+      "cmd-n": "workspace::NewFile",
+      "cmd-shift-n": "workspace::AddFolderToProject",
+      "cmd-b": "workspace::ToggleRightDock",
+      "cmd-:": "editor::ToggleInlayHints",
+      "alt-shift-f": "editor::Format"
+    }
+  }
+]

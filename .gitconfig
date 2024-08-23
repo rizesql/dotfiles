@@ -1,0 +1,26 @@
+# [user]
+# 	name = Stefan Rizescu
+# 	email = iulian.stefan.rizescu@gmail.com
+# [filter "lfs"]
+# 	clean = git-lfs clean -- %f
+# 	smudge = git-lfs smudge -- %f
+# 	process = git-lfs filter-process
+# 	required = true
+
+[push]
+autoSetupRemote = true
+
+[includeIf "gitdir:~/work/codestory/"]
+path = ~/dotfiles/.config/git/codestory/.gitconfig
+
+[includeIf "gitdir:~/projects/"]
+path = ~/.config/git/personal/.gitconfig
+
+# [core]
+#   excludesfile = ~/.gitignore
+# [credential "https://github.com"]
+# useHttpPath = true
+
+[alias]
+main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d '/' -f4
+fomo = !git fetch origin $(git main-branch) && git rebase origin/$(git main-branch) --autostash

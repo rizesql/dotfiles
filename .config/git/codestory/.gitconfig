@@ -1,0 +1,9 @@
+[user]
+email = stefan.rizescu@codestory.ro
+name = Stefan Rizescu
+
+[github]
+user = "rizesqlcs"
+
+[core]
+sshCommand = "ssh -i ~/.ssh/codestory"

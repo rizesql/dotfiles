@@ -1,0 +1,97 @@
+{
+  "features": {
+    "copilot": false
+  },
+  "base_keymap": "VSCode",
+  "theme": "Catppuccin Mocha",
+  "ui_font_family": "Zed Sans",
+  "buffer_font_family": "Zed Mono",
+  "ui_font_size": 14,
+  "buffer_font_size": 13,
+  "project_panel": {
+    "dock": "right"
+  },
+  "chat_panel": {
+    "dock": "right"
+  },
+  "notification_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "format_on_save": "on",
+  "enable_language_server": true,
+  "terminal": {
+    "alternate_scroll": "off",
+    "blinking": "terminal_controlled",
+    "copy_on_select": false,
+    "env": {},
+    "working_directory": "current_project_directory",
+    "font_family": "CaskaydiaCove Nerd Font"
+  },
+  "hover_popover_enabled": true,
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "checkOnSave": {
+          "command": "clippy"
+        }
+      }
+    },
+    "typescript-language-server": {
+      "initialization_options": {
+        "preferences": {
+          "includeInlayParameterNameHints": "all",
+          "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
+          "includeInlayFunctionParameterTypeHints": true,
+          "includeInlayVariableTypeHints": true,
+          "includeInlayVariableTypeHintsWhenTypeMatchesName": false,
+          "includeInlayPropertyDeclarationTypeHints": true,
+          "includeInlayFunctionLikeReturnTypeHints": true,
+          "includeInlayEnumMemberValueHints": true
+        }
+      }
+    }
+  },
+  "inlay_hints": {
+    "enabled": false,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50
+  },
+  "formatter": "auto",
+  "auto_update": true,
+  "tab_size": 2,
+  "wrap_guides": [
+    90
+  ],
+  "languages": {
+    "TSX": {
+      "formatter": {
+        "external": {
+          "command": "./node_modules/.bin/biome",
+          "arguments": [
+            "format",
+            "--write",
+            "--stdin-file-path={buffer_path}"
+          ]
+        }
+      }
+    },
+    "TypeScript": {
+      "formatter": {
+        "external": {
+          "command": "./node_modules/.bin/biome",
+          "arguments": [
+            "format",
+            "--write",
+            "--stdin-file-path={buffer_path}"
+          ]
+        }
+      }
+    }
+  }
+}
