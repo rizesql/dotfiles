@@ -1,8 +1,11 @@
+alias reload-zsh='source ~/.config/zsh/.zshrc'
+
 alias air='~/bin/air'
 
 alias todo='git grep -l TODO | xargs -n1 git blame -f -n -w | grep TODO | sed "s/.\{9\}//" | sed "s/(.*)[[:space:]]*//"'
 
-alias z="zed ."
+alias z="zed"
+alias vs="code"
 
 alias l="eza -l --icons --git -a"
 alias ls="eza --icons --group-directories-first --color=always"

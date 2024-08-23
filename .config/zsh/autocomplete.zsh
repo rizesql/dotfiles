@@ -24,8 +24,6 @@ zstyle ':fzf-tab:*' switch-group '<' '>'
 zstyle ':completion:*' list-max-items 20
 
 HISTSIZE=5000
-# HISTFILE=~/.zsh_history
-HISTFILE="$XDG_STATE_HOME"/zsh/history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 

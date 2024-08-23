@@ -12,10 +12,6 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
-zinit wait lucid light-mode for lukechilds/zsh-nvm
-export NVM_COMPLETION=true
-export NVM_LAZY_LOAD=true
-
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found

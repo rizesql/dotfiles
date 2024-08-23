@@ -26,14 +26,6 @@ config.enable_tab_bar = false
 -- keys config
 config.keys = {
   {
-    key = "k",
-    mods = "CMD",
-    action = wezterm.action.Multiple {
-      wezterm.action.ClearScrollback "ScrollbackAndViewport",
-      wezterm.action.SendKey { key = "L", mods = "CTRL" },
-    },
-  },
-  {
     key = "s",
     mods = "CMD",
     action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
@@ -46,12 +38,27 @@ config.keys = {
 }
 
 config.mouse_bindings = {
-  -- Ctrl-click will open the link under the mouse cursor
+  -- Change the default click behavior so that it only selects
+  -- text and doesn't open hyperlinks
   {
-    event = { Up = { streak = 1, button = 'Left' } },
-    mods = 'CMD',
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = "NONE",
+    action = wezterm.action.CompleteSelection("PrimarySelection"),
+  },
+
+  -- and make CTRL-Click open hyperlinks
+  {
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = "CMD",
     action = wezterm.action.OpenLinkAtMouseCursor,
   },
+
+  -- Disable the 'Down' event of CTRL-Click to avoid weird program behaviors
+  {
+    event = { Down = { streak = 1, button = 'Left' } },
+    mods = "CMD",
+    action = wezterm.action.Nop,
+  }
 }
 
 return config

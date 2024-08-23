@@ -46,13 +46,11 @@
       };
 
       environment.systemPackages = [
+        pkgs.bat
         pkgs.direnv
         pkgs.stow
         pkgs.tmux
         pkgs.vim
-        # pkgs.vscode
-        # pkgs.wezterm
-        # pkgs.zed-editor
       ];
 
       homebrew = {
@@ -60,6 +58,7 @@
 
         taps = [];
         brews = [
+          "orbstack"
           # "stow"
         ];
         casks = [
