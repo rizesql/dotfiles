@@ -11,6 +11,8 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light mroth/evalcache
+zinit light romkatv/zsh-defer
 
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
@@ -18,9 +20,9 @@ zinit snippet OMZP::command-not-found
 
 autoload -Uz compinit
 if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.config/zsh/.zcompdump) ]; then
-  compinit
+  compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 else
-  compinit -C
+  compinit -C -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 fi
 
 zinit cdreplay -q

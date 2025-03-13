@@ -1,0 +1,15 @@
+{
+  "flakes": [
+    {
+      "from": {
+        "id": "nixzy",
+        "type": "indirect"
+      },
+      "to": {
+        "path": "/Users/rizesql/projects/flakes",
+        "type": "path"
+      }
+    }
+  ],
+  "version": 2
+}

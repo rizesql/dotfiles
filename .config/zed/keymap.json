@@ -1,11 +1,15 @@
 [
   {
     "bindings": {
-      "cmd-n": "workspace::NewFile",
-      "cmd-shift-n": "workspace::AddFolderToProject",
-      "cmd-b": "workspace::ToggleRightDock",
-      "cmd-:": "editor::ToggleInlayHints",
-      "alt-shift-f": "editor::Format"
+      "ctrl-]": "workspace::ToggleRightDock",
+      "ctrl-[": "workspace::ToggleLeftDock",
+      "ctrl-:": "editor::ToggleInlayHints",
+      "ctrl-cmd-f": "editor::Format",
+      "ctrl-cmd-backspace": "editor::DeleteLine",
+      "ctrl-n": "project_panel::NewFile",
+      "ctrl-cmd-n": "project_panel::NewDirectory",
+      "ctrl-o": "editor::OpenFile",
+      "ctrl-'": "terminal_panel::ToggleFocus"
     }
   }
 ]

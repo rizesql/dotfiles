@@ -1,13 +1,23 @@
 {
-  "features": {
-    "copilot": false
+  "icon_theme": "Colored Zed Icons Theme Dark",
+  "show_edit_predictions": false,
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
+    },
+    "version": "2"
   },
+  "features": {
+    "copilot": true
+  },
+  "load_direnv": "shell_hook",
   "base_keymap": "VSCode",
   "theme": "Catppuccin Mocha",
   "ui_font_family": "Zed Sans",
   "buffer_font_family": "Zed Mono",
-  "ui_font_size": 14,
-  "buffer_font_size": 13,
+  "ui_font_size": 13,
+  "buffer_font_size": 12.5,
   "project_panel": {
     "dock": "right"
   },
@@ -34,11 +44,36 @@
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
-        "checkOnSave": {
-          "command": "clippy"
+        "inlayHints": {
+          "maxLength": null,
+          "lifetimeElisionHints": {
+            "enable": "skip_trivial",
+            "useParameterNames": true
+          },
+          "closureReturnTypeHints": {
+            "enable": "always"
+          }
+        },
+        "cargo": {
+          "allFeatures": true,
+          "features": ["ssr"]
         }
       }
     },
+
+    "nil": {
+      "formatting": {
+        "command": "nixfmt"
+      },
+      "initialization_options": {
+        "checkOnSave": {
+          "command": "nil",
+          "filetypes": ["nix"],
+          "rootPatterns": ["flake.nix"]
+        }
+      }
+    },
+
     "typescript-language-server": {
       "initialization_options": {
         "preferences": {
@@ -50,6 +85,27 @@
           "includeInlayPropertyDeclarationTypeHints": true,
           "includeInlayFunctionLikeReturnTypeHints": true,
           "includeInlayEnumMemberValueHints": true
+        }
+      }
+    },
+
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lineLength": 120
+        }
+      }
+    },
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "autoFormatStrings": true,
+          "autoImportCompletions": true,
+          "diagnostics": {
+            "enabled": true,
+            "useLibraryCodeForTypes": true
+          },
+          "generateWithTypeAnnotation": true
         }
       }
     }
@@ -65,33 +121,63 @@
   "formatter": "auto",
   "auto_update": true,
   "tab_size": 2,
-  "wrap_guides": [
-    90
-  ],
+  "wrap_guides": [90],
   "languages": {
-    "TSX": {
+    // "TSX": {
+    //   "formatter": {
+    //     "external": {
+    //       "command": "./node_modules/.bin/biome",
+    //       "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
+    //     }
+    //   }
+    // },
+    // "TypeScript": {
+    //   "formatter": {
+    //     "external": {
+    //       "command": "./node_modules/.bin/biome",
+    //       "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
+    //     }
+    //   }
+    // },
+    // "JavaScript": {
+    //   "formatter": {
+    //     "external": {
+    //       "command": "./node_modules/.bin/biome",
+    //       "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
+    //     }
+    //   }
+    // },
+    // "Astro": {
+    //   "formatter": {
+    //     "external": {
+    //       "command": "./node_modules/.bin/biome",
+    //       "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
+    //     }
+    //   }
+    // },
+    "Nix": {
       "formatter": {
         "external": {
-          "command": "./node_modules/.bin/biome",
-          "arguments": [
-            "format",
-            "--write",
-            "--stdin-file-path={buffer_path}"
-          ]
+          "command": "nixfmt"
         }
-      }
+      },
+      "language_servers": ["nil"]
     },
-    "TypeScript": {
-      "formatter": {
-        "external": {
-          "command": "./node_modules/.bin/biome",
-          "arguments": [
-            "format",
-            "--write",
-            "--stdin-file-path={buffer_path}"
-          ]
+    "Python": {
+      "language_servers": ["pyright", "ruff"],
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": false,
+            "source.fixAll.ruff": true
+          }
+        },
+        {
+          "language_server": { "name": "ruff" }
         }
-      }
+      ],
+      "show_edit_predictions": true
     }
   }
 }

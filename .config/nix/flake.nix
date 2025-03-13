@@ -9,72 +9,108 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
-  let
-    configuration = { pkgs, ... }: {
-      services.nix-daemon.enable = true;
-      nix.settings.experimental-features = "nix-command flakes";
-      programs.zsh.enable = true;
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-      system.stateVersion = 4;
-      nixpkgs.hostPlatform = "aarch64-darwin";
-      security.pam.enableSudoTouchIdAuth = true;
+  outputs =
+    inputs@{
+      self,
+      nix-darwin,
+      nixpkgs,
+    }:
+    let
+      configuration =
+        { pkgs, ... }:
+        {
+          services.nix-daemon.enable = true;
+          nix.settings.experimental-features = "nix-command flakes";
 
-      users.users.rizesql = {
-        name = "rizesql";
-        home = "/Users/rizesql";
-      };
-      # home-manager.backupFileExtension = "backup";
-      nix.configureBuildUsers = true;
-      nix.useDaemon = true;
+          programs.zsh.enable = true;
+          programs.direnv = {
+            package = pkgs.direnv;
+            silent = false;
+            loadInNixShell = true;
+            direnvrcExtra = "";
+            nix-direnv = {
+              enable = true;
+              package = pkgs.nix-direnv;
+            };
+          };
 
-      system.defaults = {
-        dock.autohide = true;
-        dock.mru-spaces = false;
-        finder.AppleShowAllExtensions = true;
-        finder.FXPreferredViewStyle = "clmv";
-        screencapture.location = "~/Pictures/screenshots";
-        screensaver.askForPasswordDelay = 10;
-        # org.hammerspoon.Hammerspoon.MJConfigFile = "~/.config/hammerspoon/init.lua";
-        #
-        CustomUserPreferences = {
-          "org.hammerspoon.Hammerspoon" = {
-            # MJConfigFile = "~/dotfiles/.config/hammerspoon/init.lua";
-            MJConfigDir = "~/.config/hammerspoon";
+          system.configurationRevision = self.rev or self.dirtyRev or null;
+          system.stateVersion = 4;
+          nixpkgs.hostPlatform = "aarch64-darwin";
+          security.pam.enableSudoTouchIdAuth = true;
+
+          users.users.rizesql = {
+            name = "rizesql";
+            home = "/Users/rizesql";
+          };
+          nix.configureBuildUsers = true;
+          nix.useDaemon = true;
+
+          system.defaults = {
+            dock.autohide = true;
+            dock.mru-spaces = false;
+            finder.AppleShowAllExtensions = true;
+            finder.FXPreferredViewStyle = "clmv";
+            screencapture.location = "~/Pictures/screenshots";
+            loginwindow.LoginwindowText = "";
+            screensaver.askForPasswordDelay = 10;
+          };
+
+          environment.systemPackages = [
+            pkgs.atuin
+            pkgs.bat
+            pkgs.direnv
+            pkgs.eza
+            pkgs.fd
+            pkgs.fnm
+            pkgs.fzf
+            pkgs.gh
+            pkgs.git
+            pkgs.jq
+            pkgs.just
+            pkgs.lazygit
+            pkgs.lazydocker
+            pkgs.neovim
+            # pkgs.nixd
+            pkgs.nixfmt-rfc-style
+            pkgs.nil
+            pkgs.ripgrep
+            pkgs.starship
+            pkgs.stow
+            pkgs.tmux
+            pkgs.vim
+            pkgs.yazi
+            pkgs.zoxide
+          ];
+
+          environment.etc."pam.d/sudo_local".text = ''
+            # Managed by Nix Darwin
+            auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
+            auth       sufficient     pam_tid.so
+          '';
+
+          homebrew = {
+            enable = true;
+
+            taps = [ ];
+            brews = [
+              "dotenvx/brew/dotenvx"
+              "pam-reattach"
+            ];
+            casks = [
+              "ghostty"
+              "orbstack"
+              "visual-studio-code"
+              "zed"
+            ];
           };
         };
+    in
+    {
+      darwinConfigurations."Rizescus-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+        modules = [ configuration ];
       };
 
-      environment.systemPackages = [
-        pkgs.bat
-        pkgs.direnv
-        pkgs.stow
-        pkgs.tmux
-        pkgs.vim
-      ];
-
-      homebrew = {
-        enable = true;
-
-        taps = [];
-        brews = [
-          "orbstack"
-          # "stow"
-        ];
-        casks = [
-          "hammerspoon"
-          "visual-studio-code"
-          "wezterm"
-          "zed"
-        ];
-      };
+      darwinPackages = self.darwinConfigurations."Rizescus-MacBook-Pro".pkgs;
     };
-  in
-  {
-    darwinConfigurations."Rizescus-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
-    };
-
-    darwinPackages = self.darwinConfigurations."Rizescus-MacBook-Pro".pkgs;
-  };
 }

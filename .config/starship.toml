@@ -1,13 +1,43 @@
-# # ~/.config/starship.toml
+# Inserts a blank line between shell prompts
+add_newline = true
 
-# # Inserts a blank line between shell prompts
-# add_newline = true
+format = """
+$username\
+$nix_shell\
+$container\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$nats\
+$directory\
+$vcsh\
+$fossil_branch\
+$fossil_metrics\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$pijul_channel\
+$docker_context\
+$fill\
+$jobs\
+$battery\
+$time\
+$status\
+$container\
+$os\
+$bun$c$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$fennel$gleam$golang$gradle$haskell$haxe$helm$java$julia$kotlin$lua$nim$nodejs$ocaml$odin$opa$perl$php$pulumi$purescript$python$quarto$raku$rlang$red$ruby$rust$scala$solidity$swift$terraform$typst$vlang$vagrant$zig$buf$guix_shell$conda$meson$spack$memory_usage$aws$gcloud$openstack$azure$direnv$env_var$crystal\
+$package\
+$newline\
+$custom
+"""
 
-# # Change command timeout from 500 to 1000 ms
-# command_timeout = 1000
-
-# # new config
-# format = """$env_var $all"""
+[fill]
+symbol = ' '
 
 # Change the default prompt characters
 [character]
@@ -20,7 +50,7 @@ disabled = false
 [username]
 style_user = "bold blue"
 style_root = "white"
-format = "[$user]($style) "
+format = "[$user ]($style)"
 disabled = false
 show_always = true
 
@@ -39,7 +69,7 @@ format = "at [$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
 symbol = "󰊢 "
-format = "via [$symbol$branch]($style) "
+format = "on [$symbol$branch]($style) "
 # truncation_length = 4
 style = "#ff9800"
 disabled = false
@@ -71,7 +101,7 @@ format = "([+$added]($added_style))( [-$deleted]($deleted_style) )"
 # disabled = true
 
 # # (deactivated because of no space left)
-# # 
+# #
 # # [terraform]
 # # format = "via [ terraform $version]($style) 壟 [$workspace]($style) "
 # # disabled = true
@@ -141,7 +171,14 @@ symbol = "󰔷 "
 symbol = "󰆥 "
 
 [nix_shell]
+format = '[$state]($style) '
 symbol = " "
+style = "bold blue"
+impure_msg = "[ ](bold red)"
+pure_msg = "[ ](bold green)"
+unknown_msg = ""
+disabled = false
+heuristic = false
 
 [os.symbols]
 Alpaquita = " "

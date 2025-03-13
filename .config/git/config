@@ -7,6 +7,23 @@ path = ~/dotfiles/.config/git/codestory/.gitconfig
 [includeIf "gitdir:~/projects/"]
 path = ~/.config/git/personal/.gitconfig
 
+[includeIf "gitdir:~/fmi/"]
+path = ~/.config/git/personal/.gitconfig
+
 [alias]
 main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d '/' -f4
 fomo = !git fetch origin $(git main-branch) && git rebase origin/$(git main-branch) --autostash
+save = !git commit -am "commit"
+
+
+[core]
+  editor = code --wait
+	excludesfile = /Users/rizesql/.gitignore
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED

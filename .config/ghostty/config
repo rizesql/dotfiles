@@ -1,0 +1,25 @@
+theme = catppuccin-mocha
+font-family = Zed Mono Extended
+font-thicken = true
+cursor-style = block
+window-theme = ghostty
+window-colorspace = display-p3
+macos-icon = custom-style
+macos-icon-ghost-color = #b4befe
+macos-icon-screen-color = #89b4fa
+
+
+window-save-state = always
+shell-integration-features = sudo
+
+mouse-hide-while-typing = true
+window-decoration = true
+window-padding-balance = true
+
+# keybind = global:unconsumed:ctrl+/=toggle_quick_terminal
+macos-option-as-alt = true
+macos-non-native-fullscreen = true
+
+quick-terminal-screen = mouse
+quick-terminal-position = center
+# quick-terminal-size = 100%,100%

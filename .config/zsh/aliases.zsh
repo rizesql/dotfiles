@@ -1,10 +1,13 @@
 alias reload-zsh='source ~/.config/zsh/.zshrc'
 
 alias air='~/bin/air'
-
+alias infocmp="/opt/homebrew/opt/ncurses/bin/infocmp"
 alias todo='git grep -l TODO | xargs -n1 git blame -f -n -w | grep TODO | sed "s/.\{9\}//" | sed "s/(.*)[[:space:]]*//"'
 
 alias z="zed"
+zx() {
+  cd $1 && cd .. && zed $1 && cd $1
+}
 alias vs="code"
 
 alias l="eza -l --icons --git -a"
@@ -16,7 +19,7 @@ alias grep='grep --color'
 alias cwd="pwd"
 alias cl='clear'
 
-alias vim="nvim"
+alias v="nvim"
 alias brew='arch -arm64 /opt/homebrew/bin/brew'
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 alias vcpkg="$HOME/vcpkg/vcpkg"
@@ -31,7 +34,7 @@ alias .....="cd ../../../.."
 alias ~="cd ~"
 
 # --bind='enter:execute($EDITOR {+})' \
-alias fdx="fd -t d | fzf --multi --height=80% --border=sharp \
+alias fdx="fd -H -E .git -t d | fzf --multi --height=80% --border=sharp \
 --preview='tree -C {}' --preview-window='45%,border-sharp' \
 --prompt='Dirs > ' \
 --bind='del:execute(rm -ri {+})' \
@@ -56,7 +59,13 @@ CMD-P to toggle preview
 '"
 
 alias cdx='cd "$(fdx)"'
+alias md='mkdir -p -- "$1" && cd $_'
 
 ssl() {
   eval `ssh-agent -s` && ssh-add ~/.ssh/$1
+}
+
+profzsh() {
+  shell=${1-$SHELL}
+  ZPROF=true $shell -i -c exit
 }
