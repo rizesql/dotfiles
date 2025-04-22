@@ -1,16 +1,13 @@
 {
-  "icon_theme": "Colored Zed Icons Theme Dark",
-  "show_edit_predictions": false,
-  "assistant": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4o"
+  "edit_predictions": {
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
     },
-    "version": "2"
+    "enabled_in_assistant": false
   },
-  "features": {
-    "copilot": true
-  },
+  "icon_theme": "Colored Zed Icons Theme Dark",
   "load_direnv": "shell_hook",
   "base_keymap": "VSCode",
   "theme": "Catppuccin Mocha",
@@ -177,7 +174,7 @@
           "language_server": { "name": "ruff" }
         }
       ],
-      "show_edit_predictions": true
+      "show_edit_predictions": false
     }
   }
 }

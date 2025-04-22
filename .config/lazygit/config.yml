@@ -1,0 +1,53 @@
+git:
+  parseEmoji: true
+  paging:
+    colorArg: always
+    pager: delta --paging=never
+
+gui:
+  commitHashLength: 0
+  skipRewordInEditorWarning: true
+  nerdFontsVersion: "3"
+  scrollHeight: 10
+  mainPanelSplitMode: vertical
+  showDivergenceFromBaseBranch: arrowAndNumber
+  theme:
+   activeBorderColor:
+     - '#89b4fa'
+     - bold
+   inactiveBorderColor:
+     - '#a6adc8'
+   optionsTextColor:
+     - '#89b4fa'
+   selectedLineBgColor:
+     - '#313244'
+   cherryPickedCommitBgColor:
+     - '#45475a'
+   cherryPickedCommitFgColor:
+     - '#89b4fa'
+   unstagedChangesColor:
+     - '#f38ba8'
+   defaultFgColor:
+     - '#cdd6f4'
+   searchingActiveBorderColor:
+     - '#f9e2af'
+
+os:
+  # I usually use lazygit embedded in nvim. For this, I use
+  # https://github.com/willothy/flatten.nvim to simplify the setup without the
+  # need for external applications.
+  #
+  edit: "nvim -- {{filename}}"
+  editAtLine: "nvim +{{line}} -- {{filename}}"
+  editAtLineAndWait: "nvim +{{line}} -- {{filename}}"
+  openDirInEditor: "nvim -- {{dir}}"
+  editInTerminal: true
+  # Create pull request command opens a URL with incorrect escaping #3064
+  # https://github.com/jesseduffield/lazygit/issues/3064
+  openLink:
+    open -n "$(echo {{link}} | sed 's/%3E/>/g' | sed 's/%2F/\//g' | sed
+    s/%27/\'/g )"
+
+promptToReturnFromSubprocess: false
+
+notARepository: "quit"

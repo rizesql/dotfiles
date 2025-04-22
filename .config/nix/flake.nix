@@ -19,7 +19,6 @@
       configuration =
         { pkgs, ... }:
         {
-          services.nix-daemon.enable = true;
           nix.settings.experimental-features = "nix-command flakes";
 
           programs.zsh.enable = true;
@@ -37,14 +36,12 @@
           system.configurationRevision = self.rev or self.dirtyRev or null;
           system.stateVersion = 4;
           nixpkgs.hostPlatform = "aarch64-darwin";
-          security.pam.enableSudoTouchIdAuth = true;
+          security.pam.services.sudo_local.touchIdAuth = true;
 
           users.users.rizesql = {
             name = "rizesql";
             home = "/Users/rizesql";
           };
-          nix.configureBuildUsers = true;
-          nix.useDaemon = true;
 
           system.defaults = {
             dock.autohide = true;
@@ -59,6 +56,7 @@
           environment.systemPackages = [
             pkgs.atuin
             pkgs.bat
+            pkgs.delta
             pkgs.direnv
             pkgs.eza
             pkgs.fd
@@ -81,6 +79,7 @@
             pkgs.vim
             pkgs.yazi
             pkgs.zoxide
+            pkgs.lua-language-server
           ];
 
           environment.etc."pam.d/sudo_local".text = ''

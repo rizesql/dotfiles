@@ -18,12 +18,29 @@ save = !git commit -am "commit"
 
 [core]
   editor = code --wait
-	excludesfile = /Users/rizesql/.gitignore
-[diff]
-  tool = vscode
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+  excludesfile = /Users/rizesql/.gitignore
+  pager = delta  
+# [diff]
+  # tool = vscode
+# [difftool "vscode"]
+  # cmd = code --wait --diff $LOCAL $REMOTE
+# [merge]
+ # tool = vscode
+# [mergetool "vscode"]
+  # cmd = code --wait $MERGED
+
+[interactive]
+  diffFilter = delta --color-only
+
+[include]
+  path = ~/dotfiles/.config/delta/catppuccin.gitconfig
+
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  side-by-side = true
+  dark = true      # or light = true, or omit for auto-detection
+  line-numbers = true
+  features = catppuccin-mocha
+
 [merge]
-  tool = vscode
-[mergetool "vscode"]
-  cmd = code --wait $MERGED
+  conflictstyle = zdiff3

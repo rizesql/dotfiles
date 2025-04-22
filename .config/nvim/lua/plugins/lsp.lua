@@ -1,48 +1,65 @@
---return {
---  {
---    "williamboman/mason.nvim",
---    config = function()
---      require("mason").setup()
---    end
---  },
---  {
---    'williamboman/mason-lspconfig.nvim',
---    config = function()
---      require("mason-lspconfig").setup({
---        ensure_installed = { "lua_ls", "tsserver" }
---      })
---    end
---  },
---  {
---    "neovim/nvim-lspconfig",
---    config = function()
---      local lspconfig = require("lspconfig")
---      lspconfig.lua_ls.setup({})
---      lspconfig.tsserver.setup({})
---
---      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
---      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
---      vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
---    end
---  }
---}
---
-
 return {
-	{
-		"neovim/nvim-lspconfig",
+  {
+    "williamboman/mason.nvim",
+    lazy = false,
+    config = function()
+      require("mason").setup()
+    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    lazy = false,
+    opts = {
+      auto_install = true,
+    },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "saghen/blink.cmp",
+      {
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+          library = {
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          }
+        }
+      }
+    },
+    config = function()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
+      require("lspconfig").lua_ls.setup { capabilities = capabilities }
+      require("lspconfig").nil_ls.setup {
+        capabilities = capabilities,
+        settings = {
+          ['nil'] = {
+            testSetting = 42,
+            formatting = {
+              command = { "nixfmt" },
+            },
+          },
+        },
+      }
+      require("lspconfig").rust_analyzer.setup {}
 
-		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			{ "j-hui/fidget.nvim", opts = {} },
-			"stevearc/conform.nvim",
-			"b0o/SchemaStore.nvim",
-		},
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if not client then
+            return
+          end
 
-		config = function()
-			require("config.lsp").setup()
-		end,
-	},
+          if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              buffer = args.buf,
+              callback = function()
+                vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+              end
+            })
+          end
+        end
+      })
+    end
+  }
 }

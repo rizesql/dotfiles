@@ -1,6 +1,7 @@
 [
   {
     "bindings": {
+      "ctrl-s": "workspace::Save",
       "ctrl-]": "workspace::ToggleRightDock",
       "ctrl-[": "workspace::ToggleLeftDock",
       "ctrl-:": "editor::ToggleInlayHints",
@@ -8,7 +9,7 @@
       "ctrl-cmd-backspace": "editor::DeleteLine",
       "ctrl-n": "project_panel::NewFile",
       "ctrl-cmd-n": "project_panel::NewDirectory",
-      "ctrl-o": "editor::OpenFile",
+      "ctrl-o": "editor::OpenSelectedFilename",
       "ctrl-'": "terminal_panel::ToggleFocus"
     }
   }

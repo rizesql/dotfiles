@@ -1,26 +1,18 @@
-return{
-  {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.6",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      local builtin = require("telescope.builtin")
-      vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-      vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-    end
+return {
+  "nvim-telescope/telescope.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    { "nvim-telescope/telescope-fzf-native.nvim", builde = "make" }
   },
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    config = function()
-      require("telescope").setup({
-        extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
-            }
-          }
-        }
-      })
-      require("telescope").load_extension("ui-select")
-    end
-  }
+  config = function()
+    require("telescope").setup {
+      extensions = {
+        fzf = {}
+      }
+    }
+    require("telescope").load_extension("fzf")
+
+    vim.keymap.set("n", "<C-f>", require("telescope.builtin").find_files, { noremap = true, silent = true })
+    vim.keymap.set("n", "<C-f><C-h>", require("telescope.builtin").help_tags, { noremap = true, silent = true })
+  end
 }

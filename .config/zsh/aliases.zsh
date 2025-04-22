@@ -9,6 +9,7 @@ zx() {
   cd $1 && cd .. && zed $1 && cd $1
 }
 alias vs="code"
+alias lg="lazygit"
 
 alias l="eza -l --icons --git -a"
 alias ls="eza --icons --group-directories-first --color=always"
