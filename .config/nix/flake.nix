@@ -10,7 +10,7 @@
   };
 
   outputs =
-    inputs@{
+    {
       self,
       nix-darwin,
       nixpkgs,
@@ -21,7 +21,12 @@
         {
           nix.settings.experimental-features = "nix-command flakes";
 
+          programs.fish = {
+            enable = true;
+            package = pkgs.fish;
+          };
           programs.zsh.enable = true;
+
           programs.direnv = {
             package = pkgs.direnv;
             silent = false;
@@ -40,8 +45,11 @@
 
           users.users.rizesql = {
             name = "rizesql";
+            uid = 501;
             home = "/Users/rizesql";
+            shell = pkgs.fish;
           };
+          users.knownUsers = [ "rizesql" ];
 
           system.defaults = {
             dock.autohide = true;
@@ -69,7 +77,6 @@
             pkgs.lazygit
             pkgs.lazydocker
             pkgs.neovim
-            # pkgs.nixd
             pkgs.nixfmt-rfc-style
             pkgs.nil
             pkgs.ripgrep
@@ -95,6 +102,7 @@
             brews = [
               "dotenvx/brew/dotenvx"
               "pam-reattach"
+              "fisher"
             ];
             casks = [
               "ghostty"

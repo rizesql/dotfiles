@@ -7,7 +7,7 @@ window-colorspace = display-p3
 macos-icon = custom-style
 macos-icon-ghost-color = #b4befe
 macos-icon-screen-color = #89b4fa
-
+shell-integration = fish
 
 window-save-state = always
 shell-integration-features = sudo
