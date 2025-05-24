@@ -10,7 +10,7 @@ abbr grep 'grep --color'
 abbr cwd "pwd"
 
 abbr v "nvim"
-abbr z "zed"
+abbr z "zeditor"
 
 abbr .. "cd .."
 abbr ... "cd ../.."

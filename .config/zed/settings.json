@@ -20,9 +20,10 @@
   "load_direnv": "shell_hook",
   "base_keymap": "VSCode",
   "theme": "Catppuccin Mocha",
-  "ui_font_family": "Zed Sans",
-  "buffer_font_family": "Zed Mono",
+  "ui_font_family": "ZedMono Nerd Font",
   "ui_font_size": 13,
+  "ui_font_weight": 550,
+  "buffer_font_family": "ZedMono Nerd Font",
   "buffer_font_size": 12.5,
   "project_panel": {
     "dock": "right"
@@ -38,14 +39,6 @@
   },
   "format_on_save": "on",
   "enable_language_server": true,
-  "terminal": {
-    "alternate_scroll": "off",
-    "blinking": "terminal_controlled",
-    "copy_on_select": false,
-    "env": {},
-    "working_directory": "current_project_directory",
-    "font_family": "CaskaydiaCove Nerd Font"
-  },
   "hover_popover_enabled": true,
   "lsp": {
     "rust-analyzer": {
@@ -129,6 +122,9 @@
   "tab_size": 2,
   "wrap_guides": [90],
   "languages": {
+    "TypeScript": {
+      "prettier": { "allowed": false }
+    },
     // "TSX": {
     //   "formatter": {
     //     "external": {

@@ -1,10 +1,13 @@
 { pkgs, ... }:
 {
   environment.systemPackages = [
+    pkgs.direnv
+    pkgs.nixfmt-rfc-style
+    pkgs.nixd
+
     pkgs.atuin
     pkgs.bat
     pkgs.delta
-    pkgs.direnv
     pkgs.eza
     pkgs.fd
     pkgs.fnm
@@ -15,8 +18,6 @@
     pkgs.just
     pkgs.lazygit
     pkgs.neovim
-    pkgs.nixfmt-rfc-style
-    pkgs.nixd
     pkgs.ripgrep
     pkgs.starship
     pkgs.stow
@@ -24,6 +25,15 @@
     pkgs.vim
     pkgs.yazi
     pkgs.zoxide
+
+    pkgs.discord
+    pkgs.pam-reattach
+    pkgs.raycast
+    pkgs.vscode
+    pkgs.zed-editor
+
+    pkgs.nerd-fonts.jetbrains-mono
+    pkgs.nerd-fonts.zed-mono
   ];
 
   homebrew = {
@@ -31,15 +41,17 @@
 
     taps = [ ];
     brews = [
-      "pam-reattach"
       "fisher"
     ];
     casks = [
       "ghostty"
       "orbstack"
-      "visual-studio-code"
-      "zed"
     ];
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = true;
+      upgrade = true;
+    };
   };
 
   system.defaults = {
@@ -56,6 +68,7 @@
     home = "/Users/rizesql";
     shell = pkgs.fish;
   };
+  system.primaryUser = "rizesql";
 
   security.pam.services.sudo_local.touchIdAuth = true;
   environment.etc."pam.d/sudo_local".text = ''

@@ -10,12 +10,7 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      darwin,
-      ...
-    }@inputs:
+    { nixpkgs, ... }@inputs:
     let
       overlays = [ ];
       mkSystem = import ./lib/mksystem.nix {
