@@ -46,6 +46,7 @@
     casks = [
       "ghostty"
       "orbstack"
+      "zen"
     ];
     onActivation = {
       cleanup = "zap";
