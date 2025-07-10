@@ -2,7 +2,7 @@
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4o"
+      "model": "gpt-4.1"
     },
     "model_parameters": [],
     "default_profile": "ask",
@@ -22,7 +22,7 @@
   "theme": "Catppuccin Mocha",
   "ui_font_family": "ZedMono Nerd Font",
   "ui_font_size": 13,
-  "ui_font_weight": 550,
+  "ui_font_weight": 500,
   "buffer_font_family": "ZedMono Nerd Font",
   "buffer_font_size": 12.5,
   "project_panel": {
@@ -42,6 +42,9 @@
   "hover_popover_enabled": true,
   "lsp": {
     "rust-analyzer": {
+      "binary": {
+        "ignore_system_version": true
+      },
       "initialization_options": {
         "inlayHints": {
           "maxLength": null,
@@ -52,10 +55,6 @@
           "closureReturnTypeHints": {
             "enable": "always"
           }
-        },
-        "cargo": {
-          "allFeatures": true,
-          "features": ["ssr"]
         }
       }
     },
@@ -84,6 +83,9 @@
           "includeInlayPropertyDeclarationTypeHints": true,
           "includeInlayFunctionLikeReturnTypeHints": true,
           "includeInlayEnumMemberValueHints": true
+        },
+        "vtsls": {
+          "autoUseWorkspaceTsdk": true
         }
       }
     },

@@ -10,7 +10,9 @@
       "ctrl-n": "project_panel::NewFile",
       "ctrl-cmd-n": "project_panel::NewDirectory",
       "ctrl-o": "editor::OpenSelectedFilename",
-      "ctrl-'": "terminal_panel::ToggleFocus"
+      "ctrl-'": "terminal_panel::ToggleFocus",
+      "ctrl-cmd-]": "pane::ActivateNextItem",
+      "ctrl-cmd-[": "pane::ActivatePreviousItem"
     }
   }
 ]

@@ -54,19 +54,19 @@ enable-fzf-tab
 [ -s "/Users/rizesql/.bun/_bun" ] && source "/Users/rizesql/.bun/_bun"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
-export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME"/npm/config/npm-init.js
-export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
-export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR"/npm
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+# export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME"/npm/config/npm-init.js
+# export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
+# export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR"/npm
+# export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 
 export FLY_CONFIG_DIR="$XDG_STATE_HOME"/fly
 
 export PATH="$XDG_CACHE_HOME"/.bun/bin:$PATH
 
 # pnpm
-export PNPM_HOME="/Users/rizesql/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+# export PNPM_HOME="/Users/rizesql/.local/share/pnpm"
+# case ":$PATH:" in
+#   *":$PNPM_HOME:"*) ;;
+#   *) export PATH="$PNPM_HOME:$PATH" ;;
+# esac
 # pnpm end

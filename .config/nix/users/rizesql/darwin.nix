@@ -40,9 +40,6 @@
     enable = true;
 
     taps = [ ];
-    brews = [
-      "fisher"
-    ];
     casks = [
       "ghostty"
       "orbstack"
