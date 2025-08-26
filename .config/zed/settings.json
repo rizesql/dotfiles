@@ -1,29 +1,31 @@
 {
   "agent": {
-    "default_model": {
+    "inline_assistant_model": {
       "provider": "copilot_chat",
       "model": "gpt-4.1"
     },
+    "default_model": {
+      "provider": "ollama",
+      "model": "qwen3:30b-a3b"
+    },
     "model_parameters": [],
-    "default_profile": "ask",
-    "version": "2"
+    "default_profile": "write"
   },
   "edit_predictions": {
-    "mode": "subtle",
-    "copilot": {
-      "proxy": null,
-      "proxy_no_verify": null
-    },
-    "enabled_in_text_threads": false
+    "mode": "subtle"
   },
+
+  "vim_mode": true,
+
   "icon_theme": "Colored Zed Icons Theme Dark",
   "load_direnv": "shell_hook",
   "base_keymap": "VSCode",
   "theme": "Catppuccin Mocha",
-  "ui_font_family": "ZedMono Nerd Font",
+  "ui_font_family": "JetBrainsMono NFP",
   "ui_font_size": 13,
   "ui_font_weight": 500,
-  "buffer_font_family": "ZedMono Nerd Font",
+  "buffer_font_weight": 500,
+  "buffer_font_family": "JetBrainsMono NFP",
   "buffer_font_size": 12.5,
   "project_panel": {
     "dock": "right"
@@ -40,6 +42,19 @@
   "format_on_save": "on",
   "enable_language_server": true,
   "hover_popover_enabled": true,
+
+  "diagnostics": {
+    "button": true,
+    "include_warnings": true,
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 150,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": null
+    }
+  },
+
   "lsp": {
     "rust-analyzer": {
       "binary": {
@@ -108,6 +123,13 @@
           },
           "generateWithTypeAnnotation": true
         }
+      }
+    },
+
+    "tinymist": {
+      "settings": {
+        "exportPdf": "onSave",
+        "outputPath": "$root/$name"
       }
     }
   },
@@ -182,6 +204,10 @@
         }
       ],
       "show_edit_predictions": false
+    },
+
+    "Kotlin": {
+      "language_servers": ["kotlin-lsp", "!kotlin-language-server"]
     }
   }
 }

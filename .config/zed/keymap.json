@@ -1,6 +1,10 @@
 [
   {
     "bindings": {
+      "ctrl-cmd-p": "command_palette::Toggle",
+      "ctrl-p": "file_finder::Toggle",
+      "ctrl-c": "editor::Copy",
+      "ctrl-v": "editor::Paste",
       "ctrl-s": "workspace::Save",
       "ctrl-]": "workspace::ToggleRightDock",
       "ctrl-[": "workspace::ToggleLeftDock",

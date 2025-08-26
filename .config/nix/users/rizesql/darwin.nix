@@ -27,11 +27,12 @@
     pkgs.zoxide
 
     pkgs.discord
+    pkgs.obsidian
     pkgs.pam-reattach
     pkgs.raycast
     pkgs.vscode
-    pkgs.zed-editor
 
+    pkgs.nerd-fonts.commit-mono
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.nerd-fonts.zed-mono
   ];
@@ -43,6 +44,7 @@
     casks = [
       "ghostty"
       "orbstack"
+      "zed"
       "zen"
     ];
     onActivation = {
