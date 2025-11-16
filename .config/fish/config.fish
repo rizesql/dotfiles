@@ -7,3 +7,39 @@ if not functions -q fisher
     echo "Fisher not found. Installing..."
     curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 end
+
+set fish_greeting
+
+if status is-interactive
+    if type -q zellij
+        # Update the zellij tab name with the current process name or pwd.
+        function zellij_tab_name_update_pre --on-event fish_preexec
+            if set -q ZELLIJ
+                set -l cmd_line (string split " " -- $argv)
+                set -l process_name $cmd_line[1]
+                if test -n "$process_name" -a "$process_name" != "cd"
+                    command nohup zellij action rename-tab $process_name >/dev/null 2>&1
+                end
+            end
+        end
+
+        function zellij_tab_name_update_post --on-event fish_postexec
+            if set -q ZELLIJ
+                set -l cmd_line (string split " " -- $argv)
+                set -l process_name $cmd_line[1]
+                if test "$process_name" = "cd"
+                    command nohup zellij action rename-tab (prompt_pwd) >/dev/null 2>&1
+                end
+            end
+        end
+    end
+end
+
+
+# if status is-interactive
+#     export ZELLIJ_CONFIG_DIR=$HOME/.config/zellij
+
+#     if [ "$TERM" = "xterm-ghostty" ]
+#         eval (zellij setup --generate-auto-start fish | string collect)
+#     end
+# end

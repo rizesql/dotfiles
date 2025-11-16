@@ -1,5 +1,6 @@
 {
   "agent": {
+    "dock": "left",
     "inline_assistant_model": {
       "provider": "copilot_chat",
       "model": "gpt-4.1"
@@ -25,7 +26,7 @@
   "ui_font_size": 13,
   "ui_font_weight": 500,
   "buffer_font_weight": 500,
-  "buffer_font_family": "JetBrainsMono NFP",
+  "buffer_font_family": "JetBrainsMono NF",
   "buffer_font_size": 12.5,
   "project_panel": {
     "dock": "right"
@@ -54,10 +55,14 @@
 
   "lsp": {
     "rust-analyzer": {
+      "enable_lsp_tasks": true,
       "binary": {
         "ignore_system_version": true
       },
       "initialization_options": {
+        "check": {
+          "command": "clippy"
+        },
         "inlayHints": {
           "maxLength": null,
           "lifetimeElisionHints": {
@@ -125,8 +130,17 @@
 
     "tinymist": {
       "settings": {
-        "exportPdf": "onSave",
-        "outputPath": "$root/$name"
+        "exportPdf": "never"
+      }
+    },
+
+    "texlab": {
+      "settings": {
+        "texlab": {
+          "build": {
+            "onSave": false
+          }
+        }
       }
     }
   },
@@ -191,13 +205,12 @@
       "format_on_save": "on",
       "formatter": [
         {
-          "code_actions": {
-            "source.organizeImports.ruff": false,
-            "source.fixAll.ruff": true
-          }
+          "code_action": "source.fixAll.ruff"
         },
         {
-          "language_server": { "name": "ruff" }
+          "language_server": {
+            "name": "ruff"
+          }
         }
       ],
       "show_edit_predictions": false

@@ -25,7 +25,9 @@
     pkgs.vim
     pkgs.yazi
     pkgs.zoxide
+    pkgs.zellij
 
+    pkgs.ghostty-bin
     pkgs.discord
     pkgs.obsidian
     pkgs.pam-reattach
@@ -42,7 +44,6 @@
 
     taps = [ ];
     casks = [
-      "ghostty"
       "orbstack"
       "zed"
       "zen"

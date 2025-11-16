@@ -1,8 +1,8 @@
 shell-integration = fish
-command = /run/current-system/sw/bin/fish --login --interactive -c tmux
+command = /run/current-system/sw/bin/fish --login --interactive -c zellij
 shell-integration-features = sudo
 
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 font-family = Zed Mono Extended
 font-thicken = true
 cursor-style = block
@@ -24,3 +24,10 @@ macos-non-native-fullscreen = true
 quick-terminal-screen = mouse
 quick-terminal-position = center
 # quick-terminal-size = 100%,100%
+
+keybind = cmd+t=unbind
+keybind = cmd+n=unbind
+keybind = cmd+c=unbind
+keybind = cmd+w=unbind
+keybind = cmd+opt+left=unbind
+keybind = cmd+opt+right=unbind
