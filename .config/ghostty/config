@@ -3,7 +3,7 @@ command = /run/current-system/sw/bin/fish --login --interactive -c zellij
 shell-integration-features = sudo
 
 theme = Catppuccin Mocha
-font-family = Zed Mono Extended
+font-family = Ioskeley Mono
 font-thicken = true
 cursor-style = block
 window-theme = ghostty

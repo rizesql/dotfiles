@@ -33,8 +33,11 @@
     pkgs.pam-reattach
     pkgs.raycast
     pkgs.vscode
+  ];
 
+  fonts.packages = [
     pkgs.nerd-fonts.commit-mono
+    pkgs.nerd-fonts.geist-mono
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.nerd-fonts.zed-mono
   ];

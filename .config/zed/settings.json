@@ -1,4 +1,8 @@
 {
+  "agent_ui_font_size": 13.0,
+  "buffer_line_height": {
+    "custom": 1.5
+  },
   "agent": {
     "dock": "left",
     "inline_assistant_model": {
@@ -22,11 +26,11 @@
   "load_direnv": "shell_hook",
   "base_keymap": "VSCode",
   "theme": "Catppuccin Mocha",
-  "ui_font_family": "JetBrainsMono NFP",
+  "ui_font_family": "Ioskeley Mono",
   "ui_font_size": 13,
-  "ui_font_weight": 500,
-  "buffer_font_weight": 500,
-  "buffer_font_family": "JetBrainsMono NF",
+  "ui_font_weight": 550,
+  "buffer_font_weight": 550,
+  "buffer_font_family": "Ioskeley Mono",
   "buffer_font_size": 12.5,
   "project_panel": {
     "dock": "right"
