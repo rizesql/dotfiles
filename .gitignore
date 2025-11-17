@@ -1,4 +1,4 @@
 .ssh/**/*
 !.ssh/config
 .zcompdump
-.DS_STORE
+.DS_STORE*

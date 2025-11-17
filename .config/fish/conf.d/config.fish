@@ -2,8 +2,6 @@ if test -e /opt/homebrew/bin/brew
     eval $(/opt/homebrew/bin/brew shellenv)
 end
 
-# set -xg PATH $HOME/bin $PATH
-
 set -gx EDITOR "nvim"
 set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx XDG_CONFIG_HOME "$HOME/.config"

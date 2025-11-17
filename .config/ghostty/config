@@ -23,7 +23,10 @@ macos-non-native-fullscreen = true
 
 quick-terminal-screen = mouse
 quick-terminal-position = center
-# quick-terminal-size = 100%,100%
+quick-terminal-size = 100%,100%
+quick-terminal-autohide = true
+quick-terminal-animation-duration = 0.12
+
 
 keybind = cmd+t=unbind
 keybind = cmd+n=unbind
@@ -31,3 +34,4 @@ keybind = cmd+c=unbind
 keybind = cmd+w=unbind
 keybind = cmd+opt+left=unbind
 keybind = cmd+opt+right=unbind
+keybind = global:ctrl+backquote=toggle_quick_terminal

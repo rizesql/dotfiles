@@ -12,7 +12,6 @@ set fish_greeting
 
 if status is-interactive
     if type -q zellij
-        # Update the zellij tab name with the current process name or pwd.
         function zellij_tab_name_update_pre --on-event fish_preexec
             if set -q ZELLIJ
                 set -l cmd_line (string split " " -- $argv)
@@ -34,12 +33,3 @@ if status is-interactive
         end
     end
 end
-
-
-# if status is-interactive
-#     export ZELLIJ_CONFIG_DIR=$HOME/.config/zellij
-
-#     if [ "$TERM" = "xterm-ghostty" ]
-#         eval (zellij setup --generate-auto-start fish | string collect)
-#     end
-# end
