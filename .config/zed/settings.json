@@ -6,12 +6,12 @@
   "agent": {
     "dock": "left",
     "inline_assistant_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4.1"
+      "provider": "google",
+      "model": "gemini-2.5-flash"
     },
     "default_model": {
-      "provider": "ollama",
-      "model": "qwen3:30b-a3b"
+      "provider": "google",
+      "model": "gemini-2.5-pro"
     },
     "model_parameters": [],
     "default_profile": "write"
@@ -79,20 +79,6 @@
         }
       }
     },
-
-    "nil": {
-      "formatting": {
-        "command": "nixfmt"
-      },
-      "initialization_options": {
-        "checkOnSave": {
-          "command": "nil",
-          "filetypes": ["nix"],
-          "rootPatterns": ["flake.nix"]
-        }
-      }
-    },
-
     "typescript-language-server": {
       "initialization_options": {
         "preferences": {
@@ -110,7 +96,6 @@
         }
       }
     },
-
     "ruff": {
       "initialization_options": {
         "settings": {
@@ -131,13 +116,11 @@
         }
       }
     },
-
     "tinymist": {
       "settings": {
         "exportPdf": "never"
       }
     },
-
     "texlab": {
       "settings": {
         "texlab": {
@@ -161,41 +144,22 @@
   "tab_size": 2,
   "wrap_guides": [90],
   "languages": {
-    "TypeScript": {
-      "prettier": { "allowed": false }
+    "Astro": {
+      "formatter": {
+        "external": {
+          "command": "./node_modules/.bin/biome",
+          "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
+        }
+      }
     },
-    // "TSX": {
-    //   "formatter": {
-    //     "external": {
-    //       "command": "./node_modules/.bin/biome",
-    //       "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
-    //     }
-    //   }
-    // },
-    // "TypeScript": {
-    //   "formatter": {
-    //     "external": {
-    //       "command": "./node_modules/.bin/biome",
-    //       "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
-    //     }
-    //   }
-    // },
-    // "JavaScript": {
-    //   "formatter": {
-    //     "external": {
-    //       "command": "./node_modules/.bin/biome",
-    //       "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
-    //     }
-    //   }
-    // },
-    // "Astro": {
-    //   "formatter": {
-    //     "external": {
-    //       "command": "./node_modules/.bin/biome",
-    //       "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
-    //     }
-    //   }
-    // },
+    "JavaScript": {
+      "formatter": {
+        "external": {
+          "command": "./node_modules/.bin/biome",
+          "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
+        }
+      }
+    },
     "Nix": {
       "formatter": {
         "external": {
@@ -219,9 +183,21 @@
       ],
       "show_edit_predictions": false
     },
-
-    "Kotlin": {
-      "language_servers": ["kotlin-lsp", "!kotlin-language-server"]
+    "TSX": {
+      "formatter": {
+        "external": {
+          "command": "./node_modules/.bin/biome",
+          "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
+        }
+      }
+    },
+    "TypeScript": {
+      "formatter": {
+        "external": {
+          "command": "./node_modules/.bin/biome",
+          "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
+        }
+      }
     }
   }
 }

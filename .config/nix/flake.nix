@@ -14,19 +14,17 @@
     };
   };
 
-  outputs =
-    { nixpkgs, ... }@inputs:
-    let
-      overlays = [ ];
-      mkSystem = import ./lib/mksystem.nix {
-        inherit overlays nixpkgs inputs;
-      };
-    in
-    {
-      darwinConfigurations.rizesql-m1 = mkSystem "macbook-pro-m1" {
-        system = "aarch64-darwin";
+  outputs = inputs: {
+    darwinConfigurations."rizesql-m1" = inputs.darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      specialArgs = {
+        inherit inputs;
         user = "rizesql";
-        darwin = true;
       };
+      modules = [
+        ./hosts/macbook-pro-m1/default.nix
+        { nixpkgs.config.allowUnfree = true; }
+      ];
     };
+  };
 }
