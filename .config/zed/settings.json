@@ -26,11 +26,11 @@
   "load_direnv": "shell_hook",
   "base_keymap": "VSCode",
   "theme": "Catppuccin Mocha",
-  "ui_font_family": "Ioskeley Mono",
+  "ui_font_family": "Berkeley Mono",
   "ui_font_size": 13,
   "ui_font_weight": 550,
-  "buffer_font_weight": 550,
-  "buffer_font_family": "Ioskeley Mono",
+  "buffer_font_weight": 500,
+  "buffer_font_family": "Berkeley Mono",
   "buffer_font_size": 12.5,
   "project_panel": {
     "dock": "right"

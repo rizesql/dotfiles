@@ -7,6 +7,11 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    berkeley-mono = {
+      url = "path:./modules/shared/berkeley-mono";
+      flake = false;
+    };
   };
 
   outputs =

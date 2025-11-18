@@ -1,5 +1,17 @@
 {
   "nodes": {
+    "berkeley-mono": {
+      "flake": false,
+      "locked": {
+        "path": "./modules/shared/berkeley-mono",
+        "type": "path"
+      },
+      "original": {
+        "path": "./modules/shared/berkeley-mono",
+        "type": "path"
+      },
+      "parent": []
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -38,6 +50,7 @@
     },
     "root": {
       "inputs": {
+        "berkeley-mono": "berkeley-mono",
         "darwin": "darwin",
         "nixpkgs": "nixpkgs"
       }
