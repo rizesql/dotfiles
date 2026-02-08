@@ -1,49 +1,102 @@
 {
-  "agent_ui_font_size": 13.0,
-  "buffer_line_height": {
-    "custom": 1.5
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
   },
+
+  "scrollbar": {
+    "show": "auto",
+    "axes": {
+      "vertical": true,
+      "horizontal": false,
+    },
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false,
+  },
+
+  "project_panel": {
+    "dock": "right",
+    "button": false,
+  },
+  "outline_panel": { "button": false },
+  "notification_panel": {
+    "dock": "right",
+    "button": false,
+  },
+  "collaboration_panel": {
+    "dock": "right",
+    "button": false,
+  },
+  "terminal": {
+    "button": false,
+    "copy_on_select": true,
+    "dock": null,
+    "toolbar": { "breadcrumbs": false },
+  },
+  "git_panel": {
+    "button": false,
+    "dock": null,
+  },
+
+  "wrap_guides": [90, 120],
+  "preferred_line_length": 90,
+  "soft_wrap": "none",
+
+  "line_indicator_format": "short",
+
+  "vim_mode": true,
+  "auto_signature_help": true,
+
+  "buffer_line_height": {
+    "custom": 1.5,
+  },
+  "buffer_font_size": 12.5,
+  "buffer_font_family": "Berkeley Mono",
+  "buffer_font_weight": 500,
+  "ui_font_size": 13,
+  "ui_font_family": "Berkeley Mono",
+  "ui_font_weight": 550,
+
+  "colorize_brackets": true,
+  "indent_guides": {
+    "coloring": "indent_aware",
+    "background_coloring": "disabled",
+  },
+  "agent_ui_font_size": 13.0,
   "agent": {
-    "dock": "left",
-    "inline_assistant_model": {
-      "provider": "google",
-      "model": "gemini-2.5-flash"
+    "profiles": {
+      "plan": {
+        "name": "Plan",
+        "tools": {},
+        "enable_all_context_servers": false,
+        "context_servers": {}
+      }
     },
     "default_model": {
       "provider": "google",
-      "model": "gemini-2.5-pro"
+      "model": "gemini-3-pro-preview",
     },
-    "model_parameters": [],
-    "default_profile": "write"
+    "dock": "left",
   },
-  "edit_predictions": {
-    "mode": "subtle"
+  "agent_servers": {
+    "gemini": {
+      "ignore_system_version": false,
+    },
   },
 
-  "vim_mode": true,
-
+  "theme": "Catppuccin Mocha",
   "icon_theme": "Colored Zed Icons Theme Dark",
+
+  "edit_predictions": {
+    "mode": "subtle",
+  },
+
   "load_direnv": "shell_hook",
   "base_keymap": "VSCode",
-  "theme": "Catppuccin Mocha",
-  "ui_font_family": "Berkeley Mono",
-  "ui_font_size": 13,
-  "ui_font_weight": 550,
-  "buffer_font_weight": 500,
-  "buffer_font_family": "Berkeley Mono",
-  "buffer_font_size": 12.5,
-  "project_panel": {
-    "dock": "right"
-  },
-  "notification_panel": {
-    "dock": "right"
-  },
-  "collaboration_panel": {
-    "dock": "right"
-  },
+
   "format_on_save": "on",
-  "enable_language_server": true,
-  "hover_popover_enabled": true,
 
   "diagnostics": {
     "button": true,
@@ -53,151 +106,168 @@
       "update_debounce_ms": 150,
       "padding": 4,
       "min_column": 0,
-      "max_severity": null
-    }
+      "max_severity": null,
+    },
   },
 
   "lsp": {
-    "rust-analyzer": {
-      "enable_lsp_tasks": true,
-      "binary": {
-        "ignore_system_version": true
-      },
-      "initialization_options": {
-        "check": {
-          "command": "clippy"
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
         },
-        "inlayHints": {
-          "maxLength": null,
-          "lifetimeElisionHints": {
-            "enable": "skip_trivial",
-            "useParameterNames": true
-          },
-          "closureReturnTypeHints": {
-            "enable": "always"
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
           }
         }
-      }
+      },
+      "enable_lsp_tasks": true
     },
+    "tailwindcss-language-server": {
+      "settings": {
+        "classFunctions": ["cva", "cx", "cn"],
+        "experimental": {
+          "classRegex": ["[cls|className]\\s\\:\\=\\s\"([^\"]*)"],
+        },
+      },
+    },
+
+    // "rust-analyzer": {
+    //   "enable_lsp_tasks": true,
+    //   "binary": {
+    //     "ignore_system_version": true,
+    //   },
+    //   "initialization_options": {
+    //     "cachePriming": { "enable": false },
+    //     "completion": {
+    //       "callable": { "snippets": "none" },
+    //       "fullFunctionSignatures": { "enable": false },
+    //       "limit": 1024,
+    //       "postfix": { "enable": false },
+    //       "hideDeprecated": true,
+    //     },
+    //     "imports": { "preferNoStd": true },
+    //     "hover": {
+    //       "actions": { "run": { "enable": false } },
+    //       "show": { "fields": 10 },
+    //     },
+    //     "inlayHints": {
+    //       "chainingHints": { "enable": false },
+    //       "closingBraceHints": { "enable": false },
+    //       "genericParameterHints": { "const": { "enable": false } },
+    //       "typeHints": { "enable": false },
+    //       "parameterHints": { "enable": false },
+    //       "renderColons": false,
+    //     },
+    //     "lens": {
+    //       "enable": false,
+    //     },
+    //     "lru": {
+    //       "capacity": 512,
+    //     },
+    //     "diagnostics": {
+    //       "experimental": {
+    //         "enable": true,
+    //       },
+    //       "styleLints": {
+    //         "enable": true,
+    //       },
+    //     },
+    //     "check": {
+    //       "command": "clippy",
+    //     },
+    //     "cargo": {
+    //       "targetDir": true,
+    //       "allTargets": false,
+    //     },
+    //     "rustfmt": {
+    //       "extraArgs": [
+    //         "--config=empty_item_single_line=false",
+    //         "--config=wrap_comments=true",
+    //         "--config=condense_wildcard_suffixes=true",
+    //         "--config=enum_discrim_align_threshold=10",
+    //         "--config=format_code_in_doc_comments=true",
+    //         "--config=hex_literal_case=Upper",
+    //         "--config=max_width=80",
+    //         "--config=reorder_impl_items=true",
+    //         "--config=group_imports=StdExternalCrate",
+    //         "--config=use_field_init_shorthand=true",
+    //       ],
+    //     },
+    //   },
+    // },
+
     "typescript-language-server": {
       "initialization_options": {
         "preferences": {
           "includeInlayParameterNameHints": "all",
           "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
-          "includeInlayFunctionParameterTypeHints": true,
+          "includeInlayFunctionParameterTypeHints": false,
           "includeInlayVariableTypeHints": true,
           "includeInlayVariableTypeHintsWhenTypeMatchesName": false,
           "includeInlayPropertyDeclarationTypeHints": true,
-          "includeInlayFunctionLikeReturnTypeHints": true,
-          "includeInlayEnumMemberValueHints": true
+          "includeInlayFunctionLikeReturnTypeHints": false,
+          "includeInlayEnumMemberValueHints": true,
         },
         "vtsls": {
-          "autoUseWorkspaceTsdk": true
-        }
-      }
+          "autoUseWorkspaceTsdk": true,
+        },
+      },
     },
     "ruff": {
       "initialization_options": {
         "settings": {
-          "lineLength": 120
-        }
-      }
+          "lineLength": 120,
+        },
+      },
     },
-    "pyright": {
-      "settings": {
-        "python.analysis": {
-          "autoFormatStrings": true,
-          "autoImportCompletions": true,
-          "diagnostics": {
-            "enabled": true,
-            "useLibraryCodeForTypes": true
-          },
-          "generateWithTypeAnnotation": true
-        }
-      }
-    },
+
     "tinymist": {
       "settings": {
-        "exportPdf": "never"
-      }
+        "exportPdf": "never",
+      },
     },
     "texlab": {
       "settings": {
         "texlab": {
           "build": {
-            "onSave": false
-          }
-        }
-      }
-    }
+            "onSave": false,
+          },
+        },
+      },
+    },
   },
-  "inlay_hints": {
-    "enabled": false,
-    "show_type_hints": true,
-    "show_parameter_hints": true,
-    "show_other_hints": true,
-    "edit_debounce_ms": 700,
-    "scroll_debounce_ms": 50
-  },
+  "inlay_hints": { "enabled": false },
   "formatter": "auto",
   "auto_update": true,
   "tab_size": 2,
-  "wrap_guides": [90],
   "languages": {
-    "Astro": {
-      "formatter": {
-        "external": {
-          "command": "./node_modules/.bin/biome",
-          "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
-        }
-      }
-    },
-    "JavaScript": {
-      "formatter": {
-        "external": {
-          "command": "./node_modules/.bin/biome",
-          "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
-        }
-      }
-    },
     "Nix": {
       "formatter": {
         "external": {
-          "command": "nixfmt"
-        }
+          "command": "nixfmt",
+        },
       },
-      "language_servers": ["nixd"]
+      "language_servers": ["nixd"],
     },
+
     "Python": {
-      "language_servers": ["pyright", "ruff"],
-      "format_on_save": "on",
+      "language_servers": ["ty", "!basedpyright", "..."],
+      //   "format_on_save": "on",
       "formatter": [
         {
-          "code_action": "source.fixAll.ruff"
+          "code_action": "source.fixAll.ruff",
         },
         {
           "language_server": {
-            "name": "ruff"
-          }
-        }
+            "name": "ruff",
+          },
+        },
       ],
-      "show_edit_predictions": false
+      //   "show_edit_predictions": false
     },
-    "TSX": {
-      "formatter": {
-        "external": {
-          "command": "./node_modules/.bin/biome",
-          "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
-        }
-      }
-    },
-    "TypeScript": {
-      "formatter": {
-        "external": {
-          "command": "./node_modules/.bin/biome",
-          "arguments": ["format", "--write", "--stdin-file-path={buffer_path}"]
-        }
-      }
-    }
-  }
+  },
 }

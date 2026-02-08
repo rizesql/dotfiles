@@ -2,7 +2,11 @@
   {
     "bindings": {
       "ctrl-cmd-p": "command_palette::Toggle",
-      "ctrl-p": "file_finder::Toggle",
+      "ctrl-p": [
+        "task::Spawn",
+        { "task_name": "Television File Finder", "reveal_target": "center" }
+      ],
+      // "ctrl-p": "file_finder::Toggle",
       "ctrl-c": "editor::Copy",
       "ctrl-v": "editor::Paste",
       "ctrl-s": "workspace::Save",

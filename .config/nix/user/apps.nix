@@ -7,6 +7,5 @@
     pkgs.pam-reattach
     pkgs.raycast
     pkgs.vscode
-    pkgs.zed-editor
   ];
 }

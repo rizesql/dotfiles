@@ -19,7 +19,7 @@ save = !git commit -am "commit"
 [core]
   editor = code --wait
   excludesfile = /Users/rizesql/.gitignore
-  pager = delta  
+  pager = delta
 # [diff]
   # tool = vscode
 # [difftool "vscode"]

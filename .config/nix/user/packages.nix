@@ -21,10 +21,13 @@
     pkgs.ripgrep
     pkgs.starship
     pkgs.stow
+    pkgs.television
     pkgs.tmux
     pkgs.vim
     pkgs.yazi
     pkgs.zoxide
     pkgs.zellij
+
+    pkgs.orbstack
   ];
 }

@@ -3,9 +3,11 @@
     enable = true;
 
     taps = [ ];
+    brews = [
+      "gemini-cli"
+    ];
     casks = [
-      "orbstack"
-      # "zed"
+      "zed"
       "zen"
     ];
     onActivation = {
