@@ -18,16 +18,8 @@ save = !git commit -am "commit"
 
 [core]
   editor = code --wait
-  excludesfile = /Users/rizesql/.gitignore
+  excludesfile = ~/.gitignore
   pager = delta
-# [diff]
-  # tool = vscode
-# [difftool "vscode"]
-  # cmd = code --wait --diff $LOCAL $REMOTE
-# [merge]
- # tool = vscode
-# [mergetool "vscode"]
-  # cmd = code --wait $MERGED
 
 [interactive]
   diffFilter = delta --color-only

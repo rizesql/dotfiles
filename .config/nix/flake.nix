@@ -14,17 +14,32 @@
     };
   };
 
-  outputs = inputs: {
-    darwinConfigurations."rizesql-m1" = inputs.darwin.lib.darwinSystem {
+  outputs =
+    inputs:
+    let
+      lib = import ./lib { inherit inputs; };
       system = "aarch64-darwin";
-      specialArgs = {
-        inherit inputs;
-        user = "rizesql";
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
+    in
+    {
+      darwinConfigurations = {
+        "rizesql-m1" = lib.mkDarwin {
+          inherit system;
+          hostname = "rizesql-m1";
+          user = "rizesql";
+          modules = [ ];
+        };
       };
-      modules = [
-        ./hosts/macbook-pro-m1/default.nix
-        { nixpkgs.config.allowUnfree = true; }
-      ];
+
+      devShells.${system}.default = pkgs.mkShell {
+        packages = [
+          pkgs.nixpkgs-fmt
+        ];
+      };
+
+      checks.${system}.default = pkgs.runCommand "fmt-check" { } ''
+        ${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt --check ${inputs.self}
+        touch $out
+      '';
     };
-  };
 }
