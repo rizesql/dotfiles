@@ -4,8 +4,8 @@
 
     taps = [ ];
     brews = [
-      "gpg"
-      "pinentry-mac"
+      # "gpg"
+      # "pinentry-mac"
     ];
     casks = [
       "zed"
