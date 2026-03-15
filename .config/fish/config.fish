@@ -9,6 +9,14 @@ end
 
 set fish_greeting
 
+if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+    source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+end
+
+if set -q GHOSTTY_RESOURCES_DIR
+    source $GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish
+end
+
 if status is-interactive
     if type -q zellij
         function zellij_tab_name_update_post --on-event fish_postexec
@@ -32,6 +40,7 @@ set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx XDG_STATE_HOME "$HOME/.local/state"
 set -gx XDG_CACHE_HOME "$HOME/.cache"
+set -gx NIX_REMOTE "daemon"
 
 set -gx FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow'
 
@@ -53,3 +62,5 @@ set -gx PNPM_HOME "$XDG_DATA_HOME/pnpm"
 if not contains $PNPM_HOME $PATH
     set -gx PATH $PNPM_HOME $PATH
 end
+
+echo (date +%s%N) >> /tmp/fish-init.log

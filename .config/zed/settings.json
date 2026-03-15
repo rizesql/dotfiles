@@ -1,4 +1,18 @@
 {
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    },
+    "gemini": {
+      "type": "registry"
+    },
+    "Qwen Code": {
+      "type": "custom",
+      "command": "qwen",
+      "args": ["--acp"],
+      "env": {},
+    },
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
@@ -66,24 +80,14 @@
   },
   "agent_ui_font_size": 13.0,
   "agent": {
-    "profiles": {
-      "plan": {
-        "name": "Plan",
-        "tools": {},
-        "enable_all_context_servers": false,
-        "context_servers": {}
-      }
-    },
+    "default_profile": "write",
     "default_model": {
-      "provider": "google",
-      "model": "gemini-3-pro-preview",
+      "effort": "medium",
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-6",
+      "enable_thinking": true,
     },
     "dock": "left",
-  },
-  "agent_servers": {
-    "gemini": {
-      "ignore_system_version": false,
-    },
   },
 
   "theme": "Catppuccin Mocha",
@@ -115,16 +119,16 @@
       "settings": {
         "typescript": {
           "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
+            "enabled": "always",
+          },
         },
         "javascript": {
           "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
-        }
+            "enabled": "always",
+          },
+        },
       },
-      "enable_lsp_tasks": true
+      "enable_lsp_tasks": true,
     },
     "tailwindcss-language-server": {
       "settings": {
@@ -235,6 +239,9 @@
         "texlab": {
           "build": {
             "onSave": false,
+          },
+          "experimental": {
+            "verbatimEnvironments": ["minted"],
           },
         },
       },

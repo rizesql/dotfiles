@@ -12,16 +12,4 @@
     bashInteractive
     fish
   ];
-
-  imports = [
-    {
-      nixpkgs.overlays = [
-        (_self: super: {
-          fish = super.fish.overrideAttrs {
-            doCheck = false;
-          };
-        })
-      ];
-    }
-  ];
 }

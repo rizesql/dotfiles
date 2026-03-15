@@ -5,5 +5,5 @@ name = Stefan Rizescu
 [github]
 user = "rizesql"
 
-[core]
-sshCommand = "ssh -i ~/.ssh/rizesql"
+[include]
+path = ~/.config/git/personal/.gitconfig.local

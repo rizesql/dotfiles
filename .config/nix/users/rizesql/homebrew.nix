@@ -4,7 +4,7 @@
 
     taps = [ ];
     brews = [
-      "gemini-cli"
+      "gpg"
     ];
     casks = [
       "zed"
