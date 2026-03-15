@@ -27,6 +27,5 @@
     pkgs.yazi
     pkgs.zoxide
     pkgs.zellij
-
   ];
 }
