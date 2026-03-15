@@ -4,3 +4,4 @@
 .DS_STORE*
 
 *.local
+allowed_signers
