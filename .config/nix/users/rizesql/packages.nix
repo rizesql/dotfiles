@@ -18,6 +18,7 @@
     pkgs.just
     pkgs.lazygit
     pkgs.neovim
+    pkgs.orbstack
     pkgs.ripgrep
     pkgs.starship
     pkgs.stow
@@ -27,6 +28,5 @@
     pkgs.zoxide
     pkgs.zellij
 
-    pkgs.orbstack
   ];
 }
