@@ -8,6 +8,7 @@
     pkgs.age
     pkgs.atuin
     pkgs.bat
+    pkgs.bitwarden-cli
     pkgs.delta
     pkgs.eza
     pkgs.fd
