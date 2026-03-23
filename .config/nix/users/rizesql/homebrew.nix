@@ -3,10 +3,7 @@
     enable = true;
 
     taps = [ ];
-    brews = [
-      # "gpg"
-      # "pinentry-mac"
-    ];
+    brews = [ ];
     casks = [
       "zed"
       "zen"

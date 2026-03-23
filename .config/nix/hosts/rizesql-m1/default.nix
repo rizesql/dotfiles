@@ -6,6 +6,7 @@
     ../../system/shells.nix
     ../../users/rizesql/apps.nix
     ../../users/rizesql/packages.nix
+    ../../users/rizesql/secrets.nix
     ../../users/rizesql/user.nix
     ../../users/rizesql/homebrew.nix
     ../../system/macos.nix

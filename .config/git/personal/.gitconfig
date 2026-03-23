@@ -1,9 +1,16 @@
 [user]
 email = iulian.stefan.rizescu@gmail.com
 name = Stefan Rizescu
+signingkey = "~/.ssh/git_rizesql.pub"
 
 [github]
 user = "rizesql"
 
-[include]
-path = ~/.config/git/personal/.gitconfig.local
+[gpg]
+format = ssh
+
+[commit]
+gpgsign = true
+
+# [include]
+# path = ~/.config/git/personal/.gitconfig.local

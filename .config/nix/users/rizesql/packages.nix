@@ -5,6 +5,7 @@
     pkgs.nixd
     pkgs.direnv
 
+    pkgs.age
     pkgs.atuin
     pkgs.bat
     pkgs.delta
@@ -20,6 +21,7 @@
     pkgs.neovim
     pkgs.orbstack
     pkgs.ripgrep
+    pkgs.sops
     pkgs.starship
     pkgs.stow
     pkgs.television

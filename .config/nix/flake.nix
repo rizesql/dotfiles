@@ -7,6 +7,10 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     berkeley-mono = {
       url = "path:./modules/shared/berkeley-mono";
@@ -27,7 +31,9 @@
           inherit system;
           hostname = "rizesql-m1";
           user = "rizesql";
-          modules = [ ];
+          modules = [
+            inputs.sops-nix.darwinModules.sops
+          ];
         };
       };
 

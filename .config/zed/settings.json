@@ -1,10 +1,10 @@
 {
   "agent_servers": {
     "claude-acp": {
-      "type": "registry"
+      "type": "registry",
     },
     "gemini": {
-      "type": "registry"
+      "type": "registry",
     },
     "Qwen Code": {
       "type": "custom",
@@ -115,6 +115,13 @@
   },
 
   "lsp": {
+    // "protobuf-language-server": {
+    //   "binary": {
+    //     "path": "buf",
+    //     "arguments": ["beta", "lsp", "--timeout=0", "--log-format=text"],
+    //   },
+    // },
+
     "vtsls": {
       "settings": {
         "typescript": {
@@ -139,70 +146,70 @@
       },
     },
 
-    // "rust-analyzer": {
-    //   "enable_lsp_tasks": true,
-    //   "binary": {
-    //     "ignore_system_version": true,
-    //   },
-    //   "initialization_options": {
-    //     "cachePriming": { "enable": false },
-    //     "completion": {
-    //       "callable": { "snippets": "none" },
-    //       "fullFunctionSignatures": { "enable": false },
-    //       "limit": 1024,
-    //       "postfix": { "enable": false },
-    //       "hideDeprecated": true,
-    //     },
-    //     "imports": { "preferNoStd": true },
-    //     "hover": {
-    //       "actions": { "run": { "enable": false } },
-    //       "show": { "fields": 10 },
-    //     },
-    //     "inlayHints": {
-    //       "chainingHints": { "enable": false },
-    //       "closingBraceHints": { "enable": false },
-    //       "genericParameterHints": { "const": { "enable": false } },
-    //       "typeHints": { "enable": false },
-    //       "parameterHints": { "enable": false },
-    //       "renderColons": false,
-    //     },
-    //     "lens": {
-    //       "enable": false,
-    //     },
-    //     "lru": {
-    //       "capacity": 512,
-    //     },
-    //     "diagnostics": {
-    //       "experimental": {
-    //         "enable": true,
-    //       },
-    //       "styleLints": {
-    //         "enable": true,
-    //       },
-    //     },
-    //     "check": {
-    //       "command": "clippy",
-    //     },
-    //     "cargo": {
-    //       "targetDir": true,
-    //       "allTargets": false,
-    //     },
-    //     "rustfmt": {
-    //       "extraArgs": [
-    //         "--config=empty_item_single_line=false",
-    //         "--config=wrap_comments=true",
-    //         "--config=condense_wildcard_suffixes=true",
-    //         "--config=enum_discrim_align_threshold=10",
-    //         "--config=format_code_in_doc_comments=true",
-    //         "--config=hex_literal_case=Upper",
-    //         "--config=max_width=80",
-    //         "--config=reorder_impl_items=true",
-    //         "--config=group_imports=StdExternalCrate",
-    //         "--config=use_field_init_shorthand=true",
-    //       ],
-    //     },
-    //   },
-    // },
+    "rust-analyzer": {
+      "enable_lsp_tasks": true,
+      //   "binary": {
+      //     "ignore_system_version": true,
+      //   },
+      "initialization_options": {
+        //     "cachePriming": { "enable": false },
+        "completion": {
+          "callable": { "snippets": "none" },
+          "fullFunctionSignatures": { "enable": false },
+          "limit": 1024,
+          "postfix": { "enable": false },
+          "hideDeprecated": true,
+        },
+        //     "imports": { "preferNoStd": true },
+        "hover": {
+          "actions": { "run": { "enable": false } },
+          "show": { "fields": 10 },
+        },
+        "inlayHints": {
+          "chainingHints": { "enable": false },
+          "closingBraceHints": { "enable": false },
+          "genericParameterHints": { "const": { "enable": false } },
+          "typeHints": { "enable": false },
+          "parameterHints": { "enable": false },
+          "renderColons": false,
+        },
+        //     "lens": {
+        //       "enable": false,
+        //     },
+        //     "lru": {
+        //       "capacity": 512,
+        //     },
+        "diagnostics": {
+          "experimental": {
+            "enable": true,
+          },
+          "styleLints": {
+            "enable": true,
+          },
+        },
+        "check": {
+          "command": "clippy",
+        },
+        //     "cargo": {
+        //       "targetDir": true,
+        //       "allTargets": false,
+        //     },
+        //     "rustfmt": {
+        //       "extraArgs": [
+        //         "--config=empty_item_single_line=false",
+        //         "--config=wrap_comments=true",
+        //         "--config=condense_wildcard_suffixes=true",
+        //         "--config=enum_discrim_align_threshold=10",
+        //         "--config=format_code_in_doc_comments=true",
+        //         "--config=hex_literal_case=Upper",
+        //         "--config=max_width=80",
+        //         "--config=reorder_impl_items=true",
+        //         "--config=group_imports=StdExternalCrate",
+        //         "--config=use_field_init_shorthand=true",
+        //       ],
+        //     },
+      },
+    },
 
     "typescript-language-server": {
       "initialization_options": {
