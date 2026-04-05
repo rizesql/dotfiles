@@ -5,19 +5,14 @@
     defaultSopsFile = ../../secrets/secrets.yaml;
 
     secrets = {
-      "git_rizesql_ssh_key" = {
+      "git_rizesql" = {
         owner = "rizesql";
-        path = "/Users/rizesql/.ssh/git_rizesql_ssh_key";
+        path = "/Users/rizesql/.ssh/git_rizesql";
         mode = "0400";
       };
-      "git_codestory_ssh_key" = {
+      "git_codestory" = {
         owner = "rizesql";
-        path = "/Users/rizesql/.ssh/git_codestory_ssh_key";
-        mode = "0400";
-      };
-      "codestory" = {
-        owner = "rizesql";
-        path = "/Users/rizesql/.ssh/codestory";
+        path = "/Users/rizesql/.ssh/git_codestory";
         mode = "0400";
       };
     };

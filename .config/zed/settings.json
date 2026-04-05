@@ -80,12 +80,11 @@
   },
   "agent_ui_font_size": 13.0,
   "agent": {
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
-      "effort": "medium",
       "provider": "zed.dev",
-      "model": "claude-sonnet-4-6",
-      "enable_thinking": true,
+      "model": "gemini-3.1-pro-preview",
+      "enable_thinking": false,
     },
     "dock": "left",
   },

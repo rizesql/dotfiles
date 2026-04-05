@@ -157,7 +157,6 @@ keybinds clear-defaults=true {
         bind "Alt =" { Resize "Increase"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
-        bind "Alt f" { ToggleFloatingPanes; }
         bind "Ctrl g" { SwitchToMode "locked"; }
         bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt i" { MoveTab "left"; }
@@ -259,6 +258,7 @@ keybinds clear-defaults=true {
 }
 
 plugins {
+    zjstatus location="https://github.com/dj95/zjstatus/releases/download/v0.22.0/zjstatus.wasm"
     about location="zellij:about"
     compact-bar location="zellij:compact-bar"
     configuration location="zellij:configuration"
@@ -274,8 +274,6 @@ plugins {
     }
 }
 
-load_plugins {
-}
 web_client {
     font "monospace"
 }
@@ -286,14 +284,7 @@ default_shell "fish"
 
 pane_frames false
 
-
 copy_command "pbcopy"
 copy_on_select true
 
 show_startup_tips false
-
-ui {
-    pane_frames {
-        rounded_corners true
-    }
-}

@@ -1,7 +1,7 @@
 [user]
 email = iulian.stefan.rizescu@gmail.com
 name = Stefan Rizescu
-signingkey = "~/.ssh/git_rizesql_ssh_key.pub"
+signingkey = "~/.ssh/git_rizesql.pub"
 
 [github]
 user = "rizesql"
