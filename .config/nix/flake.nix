@@ -47,5 +47,7 @@
         ${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt --check ${inputs.self}
         touch $out
       '';
+
+      formatter.${system} = pkgs.nixfmt-tree;
     };
 }

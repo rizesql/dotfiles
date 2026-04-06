@@ -4,9 +4,12 @@
       "ctrl-cmd-p": "command_palette::Toggle",
       "ctrl-p": [
         "task::Spawn",
-        { "task_name": "Television File Finder", "reveal_target": "center" }
+        { "task_name": "Television File Finder", "reveal_target": "center" },
       ],
-      // "ctrl-p": "file_finder::Toggle",
+      "cmd-p": [
+        "task::Spawn",
+        { "task_name": "Television File Finder", "reveal_target": "center" },
+      ],
       "ctrl-c": "editor::Copy",
       "ctrl-v": "editor::Paste",
       "ctrl-s": "workspace::Save",
@@ -20,7 +23,7 @@
       "ctrl-o": "editor::OpenSelectedFilename",
       "ctrl-'": "terminal_panel::ToggleFocus",
       "ctrl-cmd-]": "pane::ActivateNextItem",
-      "ctrl-cmd-[": "pane::ActivatePreviousItem"
-    }
-  }
+      "ctrl-cmd-[": "pane::ActivatePreviousItem",
+    },
+  },
 ]

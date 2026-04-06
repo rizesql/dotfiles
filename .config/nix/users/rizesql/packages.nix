@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  environment.variables = {
+    FLAKE = "$HOME/dotfiles/.config/nix";
+  };
+
   environment.systemPackages = [
     pkgs.nixfmt-rfc-style
     pkgs.nixd
@@ -20,6 +24,7 @@
     pkgs.just
     pkgs.lazygit
     pkgs.neovim
+    pkgs.nh
     pkgs.orbstack
     pkgs.ripgrep
     pkgs.sops
