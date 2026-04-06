@@ -9,6 +9,7 @@
     system = "aarch64-darwin";
     specialArgs = {
       inherit inputs;
+      flake = config.flake;
       hostname = "rizesql-m1";
       user = "rizesql";
 

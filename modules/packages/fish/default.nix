@@ -7,6 +7,7 @@
       config,
       user,
       lib,
+      flake,
       ...
     }:
     {
@@ -21,9 +22,7 @@
 
         fishEnv.text =
           let
-            content = lib.concatStringsSep "\n" (
-              lib.mapAttrsToList (k: v: "set -gx ${k} \"${v}\"") config.flake.env
-            );
+            content = lib.concatStringsSep "\n" (lib.mapAttrsToList (k: v: "set -gx ${k} \"${v}\"") flake.env);
             file = pkgs.writeText "nix-env.fish" content;
           in
           ''
@@ -35,7 +34,7 @@
 
         fishPath.text =
           let
-            content = lib.concatStringsSep "\n" (map (p: "fish_add_path ${p}") config.flake.path);
+            content = lib.concatStringsSep "\n" (map (p: "fish_add_path ${p}") flake.path);
             file = pkgs.writeText "nix-path.fish" content;
           in
           ''
@@ -55,7 +54,7 @@
                     ${cmd} > $__cache
                 end
                 source $__cache
-              '') config.flake.shellInits
+              '') flake.shellInits
             );
             file = pkgs.writeText "nix-inits.fish" content;
           in
@@ -74,7 +73,7 @@
               sudo -u ${user} ln -sfn "${path}" "${
                 config.users.users.${user}.home
               }/.config/fish/conf.d/${name}.fish"
-            '') config.flake.fishConfigs
+            '') flake.fishConfigs
           );
       };
     };
